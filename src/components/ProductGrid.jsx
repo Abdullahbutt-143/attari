@@ -1,0 +1,104 @@
+// src/components/ProductGrid.js
+import React from 'react';
+import ProductCard from './ProductCard';
+
+const ProductGrid = ({ activeCategory, setCartItems }) => {
+  // Sample product data
+  const products = [
+    {
+      id: 1,
+      name: 'Midnight Oud',
+      description: 'A captivating blend of oud, spices, and amber',
+      price: 89.99,
+      category: 'men',
+      image: 'men1'
+    },
+    {
+      id: 2,
+      name: 'Desert Rose',
+      description: 'Exotic floral notes with a hint of spice',
+      price: 79.99,
+      category: 'women',
+      image: 'women1'
+    },
+    {
+      id: 3,
+      name: 'Ocean Breeze',
+      description: 'Fresh aquatic notes with citrus and sea salt',
+      price: 74.99,
+      category: 'men',
+      image: 'men2'
+    },
+    {
+      id: 4,
+      name: 'Velvet Orchid',
+      description: 'Luxurious blend of orchid, vanilla, and tonka bean',
+      price: 84.99,
+      category: 'women',
+      image: 'women2'
+    },
+    {
+      id: 5,
+      name: 'Royal Amber',
+      description: 'Rich amber with hints of vanilla and sandalwood',
+      price: 92.99,
+      category: 'men',
+      image: 'men3'
+    },
+    {
+      id: 6,
+      name: 'Golden Gardenia',
+      description: 'Floral bouquet with gardenia and jasmine',
+      price: 78.99,
+      category: 'women',
+      image: 'women3'
+    },
+    {
+      id: 7,
+      name: 'Tobacco Vanille',
+      description: 'Warm tobacco leaf with vanilla and cocoa',
+      price: 87.99,
+      category: 'men',
+      image: 'men4'
+    },
+    {
+      id: 8,
+      name: 'Sakura Blossom',
+      description: 'Delicate cherry blossom with green tea notes',
+      price: 76.99,
+      category: 'women',
+      image: 'women4'
+    }
+  ];
+
+  // Filter products based on active category
+  const filteredProducts = activeCategory === 'all' 
+    ? products 
+    : products.filter(product => product.category === activeCategory);
+
+  const handleAddToCart = (product) => {
+    setCartItems(prevItems => [...prevItems, product]);
+  };
+
+  return (
+    <div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {filteredProducts.map((product) => (
+          <ProductCard 
+            key={product.id} 
+            product={product} 
+            onAddToCart={handleAddToCart} 
+          />
+        ))}
+      </div>
+      
+      {filteredProducts.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-gray-500 text-xl">No products found in this category.</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default ProductGrid;
