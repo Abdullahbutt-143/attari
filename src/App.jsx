@@ -10,7 +10,7 @@ function App() {
   
   // WhatsApp configuration
   const whatsappConfig = {
-    phoneNumber: '03012727058', // Replace with your actual number
+    phoneNumber: '03012727058',
     message: 'Hello, I have a question about Attarex products'
   };
 
