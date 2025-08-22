@@ -1,7 +1,7 @@
 // src/components/ProductCard.js
 import React from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
-
+import LaunchingSoonOverlay from './LaunchingSoonOverlay';
 const ProductCard = ({ product, onAddToCart }) => {
   // Generate placeholder image based on category
   const getImageClass = () => {
@@ -16,9 +16,13 @@ const ProductCard = ({ product, onAddToCart }) => {
   const [bgColor, borderColor] = getImageClass();
 
   return (
-    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      <div className={`h-48 ${bgColor} border-b ${borderColor} flex items-center justify-center`}>
+    <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 relative">
+      {/* Image container with relative positioning for the overlay */}
+      <div className={`relative h-48 ${bgColor} border-b ${borderColor} flex items-center justify-center`}>
         <div className="bg-gray-200 border-2 border-dashed rounded-xl w-32 h-32" />
+        
+        {/* Launching Soon Overlay */}
+        <LaunchingSoonOverlay />
       </div>
       
       <div className="p-6">
@@ -40,14 +44,16 @@ const ProductCard = ({ product, onAddToCart }) => {
         
         <button 
           onClick={() => onAddToCart(product)}
-          className="w-full py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg flex items-center justify-center transition-colors duration-300"
+          className="w-full py-2 bg-gray-400 text-white rounded-lg flex items-center justify-center transition-colors duration-300 cursor-not-allowed"
+          disabled
         >
           <FiShoppingCart className="mr-2" />
-          Add to Cart
+          Coming Soon
         </button>
       </div>
     </div>
   );
 };
+
 
 export default ProductCard;
