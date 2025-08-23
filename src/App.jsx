@@ -28,8 +28,13 @@ function App() {
             Attarex Fragrances
           </h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our exquisite collection of premium fragrances crafted with the finest ingredients. 
-            Each scent tells a unique story and leaves a lasting impression.
+            At Attarex, we believe fragrance is the language of elegance. Our perfumes are born from the finest extracts imported from France and Saudi Arabia, where the art of perfumery is celebrated at its highest form.
+
+Each bottle is crafted to deliver long-lasting, captivating scents that become a part of your identity. From bold and confident notes to soft and graceful tones, our fragrances are made to match every mood, moment, and personality.
+
+We are more than just a perfume brand — we are a promise of luxury, quality, and unforgettable experiences.
+
+✨ Attarex — wear your story, one scent at a time.
           </p>
         </div>
         

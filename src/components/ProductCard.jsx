@@ -1,9 +1,7 @@
-// src/components/ProductCard.js
 import React from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import LaunchingSoonOverlay from './LaunchingSoonOverlay';
 const ProductCard = ({ product, onAddToCart }) => {
-  // Generate placeholder image based on category
   const getImageClass = () => {
     const colors = {
       men: ['bg-blue-100', 'border-blue-200'],
