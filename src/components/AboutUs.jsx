@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiMapPin, FiPhone, FiMail, FiSend, FiInstagram, FiFacebook, FiTwitter } from 'react-icons/fi';
+import { FiAward, FiHeart, FiGlobe, FiUsers } from 'react-icons/fi';
 
 const AboutUs = () => {
   const [formData, setFormData] = useState({
@@ -31,162 +31,105 @@ const AboutUs = () => {
             About Attarex
           </h1>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            At Attarex, we believe fragrance is the language of elegance. Our perfumes are born from the finest extracts imported from France and Saudi Arabia, where the art of perfumery is celebrated at its highest form.
+            Where luxury meets essence, and every scent tells a story of elegance and sophistication.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Information */}
-          <div className="space-y-10">
-            <div>
-              <h2 className="text-2xl font-serif font-bold text-amber-900 mb-6">Get in Touch</h2>
-              
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <FiMapPin className="text-amber-700 text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">Pakistan Address</h3>
-                    <p className="text-gray-700">A219 block 3 KDA Market Gulshan e Iqbal Near Flourish Salon Karachi</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <FiMapPin className="text-amber-700 text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">UAE Address</h3>
-                    <p className="text-gray-700">248,0,LOOTAH BLDG 0 Diera DXB</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <FiPhone className="text-amber-700 text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">WhatsApp Us</h3>
-                    <p className="text-gray-700">+92 3012727058</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="bg-amber-100 p-3 rounded-full mr-4">
-                    <FiMail className="text-amber-700 text-xl" />
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">Customer Support</h3>
-                    <p className="text-gray-700">ejazrehman00@gmail.com</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <h3 className="text-xl font-serif font-bold text-amber-900 mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="bg-amber-100 p-3 rounded-full text-amber-700 hover:bg-amber-200 transition-colors">
-                  <FiInstagram className="text-xl" />
-                </a>
-                <a href="#" className="bg-amber-100 p-3 rounded-full text-amber-700 hover:bg-amber-200 transition-colors">
-                  <FiFacebook className="text-xl" />
-                </a>
-                <a href="#" className="bg-amber-100 p-3 rounded-full text-amber-700 hover:bg-amber-200 transition-colors">
-                  <FiTwitter className="text-xl" />
-                </a>
-              </div>
-            </div>
+        {/* Hero Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+          <div>
+            <h2 className="text-3xl font-serif font-bold text-amber-900 mb-6">Our Story</h2>
+            <p className="text-gray-700 mb-4">
+              Founded with a passion for exceptional fragrances, Attarex began as a dream to bring the world's finest scents to those who appreciate the art of perfumery. Our journey started in the vibrant markets of Karachi, where we discovered the transformative power of a truly remarkable fragrance.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Today, we've grown into a beloved brand with international presence, but our commitment remains unchanged: to source the highest quality ingredients from France and Saudi Arabia, and craft them into perfumes that become an extension of your identity.
+            </p>
+            <p className="text-gray-700">
+              Each Attarex fragrance is a carefully composed symphony of notes designed to evoke emotion, create memories, and express the unique personality of the wearer.
+            </p>
           </div>
-
-          {/* Contact Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-serif font-bold text-amber-900 mb-6">Send Us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
-                  placeholder="Enter your name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
-                  placeholder="Enter your email"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-colors"
-                  placeholder="Type your message here..."
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-amber-700 text-white py-3 px-6 rounded-lg font-medium hover:bg-amber-800 transition-colors flex items-center justify-center"
-              >
-                Send Message
-                <FiSend className="ml-2" />
-              </button>
-            </form>
+          <div className="bg-amber-100 rounded-2xl p-8 flex items-center justify-center">
+            <div className="text-center">
+              <img
+                src="/attarex.png"
+                alt="Attarex Logo"
+                className="w-32 h-32 object-contain rounded-xl mx-auto mb-6"
+              />
+              <p className="text-amber-700 italic">"Wear your story, one scent at a time."</p>
+            </div>
           </div>
         </div>
 
-        {/* Brand Story */}
-        <div className="mt-20 bg-amber-100 rounded-2xl p-8 md:p-12">
-          <h2 className="text-2xl md:text-3xl font-serif font-bold text-amber-900 mb-6 text-center">
-            Our Story
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <p className="text-gray-700 mb-4">
-                Each bottle is crafted to deliver long-lasting, captivating scents that become a part of your identity. From bold and confident notes to soft and graceful tones, our fragrances are made to match every mood, moment, and personality.
-              </p>
-              <p className="text-gray-700">
-                We are more than just a perfume brand — we are a promise of luxury, quality, and unforgettable experiences.
-              </p>
+        {/* Values Section */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-serif font-bold text-amber-900 mb-12 text-center">Our Values</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FiAward className="text-amber-700 text-2xl" />
+              </div>
+              <h3 className="font-serif font-bold text-amber-900 mb-2">Quality</h3>
+              <p className="text-gray-700">We never compromise on the quality of our ingredients or craftsmanship.</p>
             </div>
-            <div>
-              <p className="text-gray-700 mb-4">
-                ✨ Attarex — wear your story, one scent at a time. Our journey began with a passion for creating scents that evoke emotions and memories, connecting people through the power of fragrance.
-              </p>
-              <p className="text-gray-700">
-                Today, we continue to innovate while staying true to our commitment to excellence, sourcing the finest ingredients from around the world to create exceptional fragrances for our discerning customers.
-              </p>
+
+            <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FiHeart className="text-amber-700 text-2xl" />
+              </div>
+              <h3 className="font-serif font-bold text-amber-900 mb-2">Passion</h3>
+              <p className="text-gray-700">Perfumery is our art, and we pour our hearts into every creation.</p>
+            </div>
+
+            <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FiGlobe className="text-amber-700 text-2xl" />
+              </div>
+              <h3 className="font-serif font-bold text-amber-900 mb-2">Heritage</h3>
+              <p className="text-gray-700">We honor centuries-old perfumery traditions while innovating for today.</p>
+            </div>
+
+            <div className="text-center p-6 bg-white rounded-2xl shadow-sm">
+              <div className="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <FiUsers className="text-amber-700 text-2xl" />
+              </div>
+              <h3 className="font-serif font-bold text-amber-900 mb-2">Community</h3>
+              <p className="text-gray-700">We build relationships with our customers that go beyond transactions.</p>
             </div>
           </div>
+        </div>
+
+        {/* Process Section */}
+        <div className="bg-amber-100 rounded-2xl p-8 md:p-12 mb-20">
+          <h2 className="text-3xl font-serif font-bold text-amber-900 mb-8 text-center">Our Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-amber-700 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+              <h3 className="font-serif font-bold text-amber-900 mb-2">Sourcing</h3>
+              <p className="text-gray-700">We carefully select the finest raw materials from trusted suppliers in France and Saudi Arabia.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-amber-700 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+              <h3 className="font-serif font-bold text-amber-900 mb-2">Crafting</h3>
+              <p className="text-gray-700">Our master perfumers blend these ingredients with precision and artistry.</p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-amber-700 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+              <h3 className="font-serif font-bold text-amber-900 mb-2">Aging</h3>
+              <p className="text-gray-700">Each fragrance is aged to perfection, allowing the notes to harmonize beautifully.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Mission Statement */}
+        <div className="text-center bg-white rounded-2xl shadow-lg p-8 md:p-12">
+          <h2 className="text-3xl font-serif font-bold text-amber-900 mb-6">Our Mission</h2>
+          <p className="text-gray-700 text-lg italic max-w-3xl mx-auto">
+            "To create luxurious, long-lasting fragrances that become a signature part of our customers' identity, 
+            helping them express their unique personality and make lasting impressions through the art of scent."
+          </p>
         </div>
       </div>
     </div>
