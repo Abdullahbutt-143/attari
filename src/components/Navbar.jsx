@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FiShoppingCart, FiMenu, FiX, FiHome, FiInfo, FiPhone } from "react-icons/fi";
 
-const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
+const Navbar = ({ activeCategory, setActiveCategory, cartItems, currentPage, onPageChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
   
@@ -17,6 +17,13 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
 
   const handleCategoryClick = (categoryId) => {
     setActiveCategory(categoryId);
+    onPageChange('home'); // Switch to home page when a category is selected
+    setIsMenuOpen(false);
+    setIsCollectionsOpen(false);
+  };
+
+  const handlePageClick = (page) => {
+    onPageChange(page);
     setIsMenuOpen(false);
     setIsCollectionsOpen(false);
   };
@@ -28,7 +35,14 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
           <div className="flex justify-between items-center py-6">
             {/* Left Side Navigation - Desktop */}
             <div className="hidden md:flex items-center space-x-8">
-              <button className="flex items-center text-gray-800 hover:text-amber-700 transition-colors font-medium text-lg">
+              <button 
+                className={`flex items-center transition-colors font-medium text-lg ${
+                  currentPage === 'home' 
+                    ? "text-amber-700" 
+                    : "text-gray-800 hover:text-amber-700"
+                }`}
+                onClick={() => handlePageClick('home')}
+              >
                 <FiHome className="mr-2" />
                 Home
               </button>
@@ -60,7 +74,10 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
             </div>
 
             {/* Center Logo */}
-            <div className="flex items-center absolute left-1/2 transform -translate-x-1/2">
+            <div 
+              className="flex items-center absolute left-1/2 transform -translate-x-1/2 cursor-pointer"
+              onClick={() => handlePageClick('home')}
+            >
               <img
                 src="/attarex.png"
                 alt="Attarex Logo"
@@ -73,7 +90,14 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
 
             {/* Right Side Navigation - Desktop */}
             <div className="hidden md:flex items-center space-x-8">
-              <button className="flex items-center text-gray-800 hover:text-amber-700 transition-colors font-medium text-lg">
+              <button 
+                className={`flex items-center transition-colors font-medium text-lg ${
+                  currentPage === 'about' 
+                    ? "text-amber-700" 
+                    : "text-gray-800 hover:text-amber-700"
+                }`}
+                onClick={() => handlePageClick('about')}
+              >
                 <FiInfo className="mr-2" />
                 About Us
               </button>
@@ -125,7 +149,14 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
             }`}
           >
             <div className="py-5 space-y-4 border-t border-gray-200">
-              <button className="flex items-center w-full text-left px-4 py-3 rounded-lg text-gray-800 hover:text-amber-700 hover:bg-amber-50 transition-all font-medium">
+              <button 
+                className={`flex items-center w-full text-left px-4 py-3 rounded-lg transition-all font-medium ${
+                  currentPage === 'home' 
+                    ? "text-amber-700 bg-amber-50" 
+                    : "text-gray-800 hover:text-amber-700 hover:bg-amber-50"
+                }`}
+                onClick={() => handlePageClick('home')}
+              >
                 <FiHome className="mr-3 text-lg" />
                 Home
               </button>
@@ -158,7 +189,14 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
                 </div>
               </div>
               
-              <button className="flex items-center w-full text-left px-4 py-3 rounded-lg text-gray-800 hover:text-amber-700 hover:bg-amber-50 transition-all font-medium">
+              <button 
+                className={`flex items-center w-full text-left px-4 py-3 rounded-lg transition-all font-medium ${
+                  currentPage === 'about' 
+                    ? "text-amber-700 bg-amber-50" 
+                    : "text-gray-800 hover:text-amber-700 hover:bg-amber-50"
+                }`}
+                onClick={() => handlePageClick('about')}
+              >
                 <FiInfo className="mr-3 text-lg" />
                 About Us
               </button>
