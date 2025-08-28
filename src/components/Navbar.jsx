@@ -14,6 +14,7 @@ import {
 const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
+  const [isDesktopCollectionsOpen, setIsDesktopCollectionsOpen] = useState(false);
 
   const categories = [
     { id: "all", name: "All Fragrances" },
@@ -27,7 +28,58 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4 md:py-6">
+        <div className="flex justify-between items-center py-4 md:py-6 relative">
+
+          {/* Desktop Left Nav */}
+          <div className="hidden md:flex items-center space-x-6">
+            <Link
+              to="/"
+              className="flex items-center text-gray-800 hover:text-amber-700 font-medium text-lg transition-colors"
+            >
+              <FiHome className="mr-2" />
+              Home
+            </Link>
+
+            <div
+              className="relative"
+              onMouseEnter={() => setIsDesktopCollectionsOpen(true)}
+              onMouseLeave={() => setIsDesktopCollectionsOpen(false)}
+            >
+              <button
+                className="flex items-center text-gray-800 hover:text-amber-700 font-medium text-lg transition-colors"
+                onClick={() => setIsDesktopCollectionsOpen((v) => !v)}
+                aria-expanded={isDesktopCollectionsOpen}
+                aria-haspopup="true"
+              >
+                Collections
+                {isDesktopCollectionsOpen ? (
+                  <FiChevronUp className="ml-1" />
+                ) : (
+                  <FiChevronDown className="ml-1" />
+                )}
+              </button>
+
+              {isDesktopCollectionsOpen && (
+                <div className="absolute mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden">
+                  {categories.map((category) => (
+                    <button
+                      key={category.id}
+                      className={`w-full text-left px-4 py-3 text-gray-800 hover:bg-amber-50 hover:text-amber-700 transition-colors ${
+                        activeCategory === category.id ? "bg-amber-700 text-white hover:text-white" : ""
+                      }`}
+                      onClick={() => {
+                        setActiveCategory(category.id);
+                        setIsDesktopCollectionsOpen(false);
+                      }}
+                    >
+                      {category.name}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
           {/* Mobile menu button */}
           <button
             onClick={toggleMenu}
@@ -41,6 +93,7 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
           <Link
             to="/"
             className="flex items-center absolute left-1/2 transform -translate-x-1/2 cursor-pointer"
+            aria-label="Go to homepage"
           >
             <img
               src="/attarex.png"
@@ -52,7 +105,7 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
             </h1>
           </Link>
 
-          {/* Desktop Navigation - Right Side */}
+          {/* Desktop Right Nav */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
               to="/aboutus"
