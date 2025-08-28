@@ -5,13 +5,13 @@ import Navbar from "./components/Navbar";
 import ProductGrid from "./components/ProductGrid";
 import AboutUs from "./components/AboutUs";
 import ContactUs from "./components/ContactUs";
+import TermsAndConditions from "./components/TermsAndConditions"; // NEW
 import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   const [activeCategory, setActiveCategory] = useState("all");
   const [cartItems, setCartItems] = useState([]);
 
-  // WhatsApp configuration
   const whatsappConfig = {
     phoneNumber: "+923012727058",
     message: "Hello, I have a question about Attarex products",
@@ -20,7 +20,11 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-        <Navbar activeCategory={activeCategory} setActiveCategory={setActiveCategory} cartItems={cartItems} />
+        <Navbar
+          activeCategory={activeCategory}
+          setActiveCategory={setActiveCategory}
+          cartItems={cartItems}
+        />
 
         <Routes>
           <Route
@@ -36,12 +40,17 @@ function App() {
                   </p>
                 </div>
 
-                <ProductGrid activeCategory={activeCategory} setCartItems={setCartItems} />
+                <ProductGrid
+                  activeCategory={activeCategory}
+                  setCartItems={setCartItems}
+                />
               </div>
             }
           />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
+          {/* NEW Terms route */}
+          <Route path="/terms" element={<TermsAndConditions />} />
         </Routes>
 
         <WhatsAppButton config={whatsappConfig} />

@@ -8,13 +8,14 @@ import {
   FiInfo,
   FiPhone,
   FiChevronDown,
-  FiChevronUp
+  FiChevronUp,
 } from "react-icons/fi";
 
 const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCollectionsOpen, setIsCollectionsOpen] = useState(false);
-  const [isDesktopCollectionsOpen, setIsDesktopCollectionsOpen] = useState(false);
+  const [isDesktopCollectionsOpen, setIsDesktopCollectionsOpen] =
+    useState(false);
 
   const categories = [
     { id: "all", name: "All Fragrances" },
@@ -29,7 +30,6 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
     <nav className="sticky top-0 z-50 bg-white shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4 md:py-6 relative">
-
           {/* Desktop Left Nav */}
           <div className="hidden md:flex items-center space-x-6">
             <Link
@@ -40,6 +40,7 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
               Home
             </Link>
 
+            {/* Collections dropdown unchanged */}
             <div
               className="relative"
               onMouseEnter={() => setIsDesktopCollectionsOpen(true)}
@@ -60,13 +61,18 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
               </button>
 
               {isDesktopCollectionsOpen && (
-                <div className="absolute mt-2 w-56 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden">
+                <div
+                  className="absolute top-full left-0 w-56 bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden"
+                  onMouseEnter={() => setIsDesktopCollectionsOpen(true)}
+                >
                   {categories.map((category) => (
                     <button
                       key={category.id}
-                      className={`w-full text-left px-4 py-3 text-gray-800 hover:bg-amber-50 hover:text-amber-700 transition-colors ${
-                        activeCategory === category.id ? "bg-amber-700 text-white hover:text-white" : ""
-                      }`}
+                      className={
+                        activeCategory === category.id
+                          ? "w-full text-left px-4 py-3 bg-amber-700 text-white transition-colors"
+                          : "w-full text-left px-4 py-3 text-gray-800 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                      }
                       onClick={() => {
                         setActiveCategory(category.id);
                         setIsDesktopCollectionsOpen(false);
@@ -121,6 +127,14 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
               <FiPhone className="mr-2" /> Contact Us
             </Link>
 
+            {/* NEW: Terms link on desktop */}
+            <Link
+              to="/terms"
+              className="text-gray-800 hover:text-amber-700 font-medium text-lg transition-colors"
+            >
+              Terms and Conditions
+            </Link>
+
             <div className="relative">
               <button className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 hover:bg-amber-100 transition-colors">
                 <FiShoppingCart className="text-xl text-gray-700" />
@@ -132,18 +146,6 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
               </button>
             </div>
           </div>
-
-          {/* Mobile cart icon */}
-          <div className="md:hidden relative">
-            <button className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100">
-              <FiShoppingCart className="text-xl text-gray-700" />
-              {cartItems.length > 0 && (
-                <span className="absolute -top-1 -right-1 bg-amber-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-semibold">
-                  {cartItems.length}
-                </span>
-              )}
-            </button>
-          </div>
         </div>
 
         {/* Mobile Navigation Menu */}
@@ -153,7 +155,6 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
           }`}
         >
           <div className="py-4 space-y-2 border-t border-gray-200">
-            {/* Home Link */}
             <Link
               to="/"
               className="flex items-center px-4 py-3 rounded-lg text-gray-800 hover:text-amber-700 hover:bg-amber-50 transition-all font-medium"
@@ -163,15 +164,13 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
               Home
             </Link>
 
-            {/* Collections with Dropdown */}
+            {/* Collections with Dropdown unchanged */}
             <div>
               <button
                 className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-gray-800 hover:text-amber-700 hover:bg-amber-50 transition-all font-medium"
                 onClick={toggleCollections}
               >
-                <span className="flex items-center">
-                  Collections
-                </span>
+                <span className="flex items-center">Collections</span>
                 {isCollectionsOpen ? <FiChevronUp /> : <FiChevronDown />}
               </button>
 
@@ -183,13 +182,14 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
                 {categories.map((category) => (
                   <button
                     key={category.id}
-                    className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-300 font-medium ${
+                    className={
                       activeCategory === category.id
-                        ? "bg-amber-700 text-white"
-                        : "text-gray-700 hover:text-amber-700 hover:bg-amber-50"
-                    }`}
+                        ? "w-full text-left px-4 py-3 bg-amber-700 text-white transition-colors"
+                        : "w-full text-left px-4 py-3 text-gray-800 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                    }
                     onClick={() => {
                       setActiveCategory(category.id);
+                      setIsDesktopCollectionsOpen(false);
                       setIsMenuOpen(false);
                     }}
                   >
@@ -199,7 +199,6 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
               </div>
             </div>
 
-            {/* About Us Link */}
             <Link
               to="/aboutus"
               className="flex items-center px-4 py-3 rounded-lg text-gray-800 hover:text-amber-700 hover:bg-amber-50 transition-all font-medium"
@@ -209,7 +208,6 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
               About Us
             </Link>
 
-            {/* Contact Us Link */}
             <Link
               to="/contactus"
               className="flex items-center px-4 py-3 rounded-lg text-gray-800 hover:text-amber-700 hover:bg-amber-50 transition-all font-medium"
@@ -217,6 +215,15 @@ const Navbar = ({ activeCategory, setActiveCategory, cartItems }) => {
             >
               <FiPhone className="mr-3 text-lg" />
               Contact Us
+            </Link>
+
+            {/* NEW: Terms link on mobile */}
+            <Link
+              to="/terms"
+              className="flex items-center px-4 py-3 rounded-lg text-gray-800 hover:text-amber-700 hover:bg-amber-50 transition-all font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Terms and Conditions
             </Link>
           </div>
         </div>
