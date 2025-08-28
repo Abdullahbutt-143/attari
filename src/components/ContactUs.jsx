@@ -68,7 +68,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">WhatsApp Us</h3>
-                    <p className="text-gray-700">+92 3012546333</p>
+                    <p className="text-gray-700">+92 301 2727058</p>
                   </div>
                 </div>
 
@@ -78,7 +78,7 @@ export default function ContactUs() {
                   </div>
                   <div>
                     <h3 className="font-medium text-gray-900">Customer Support</h3>
-                    <p className="text-gray-700">helloelyscents@gmail.com</p>
+                    <p className="text-gray-700">ejazrehman00@gmail.com</p>
                   </div>
                 </div>
               </div>
