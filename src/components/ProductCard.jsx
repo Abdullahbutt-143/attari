@@ -27,7 +27,7 @@ const ProductCard = ({ product, onAddToCart }) => {
         <div className="flex justify-between items-start mb-2">
           <div>
             <h3 className="text-xl font-semibold text-gray-800">{product.name}</h3>
-            <p className="text-amber-700 font-medium">${product.price.toFixed(2)}</p>
+            <p className="text-amber-700 font-medium">Rs{product.price.toFixed(2)}</p>
           </div>
           <span className={`px-2 py-1 rounded-full text-xs font-medium ${
             product.category === 'men' 

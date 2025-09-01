@@ -1,15 +1,13 @@
-// src/components/ProductGrid.js
 import React from 'react';
 import ProductCard from './ProductCard';
 
 const ProductGrid = ({ activeCategory, setCartItems }) => {
-  // Sample product data
   const products = [
     {
       id: 1,
-      name: 'Midnight Oud',
+      name: 'Gentelman',
       description: 'A captivating blend of oud, spices, and amber',
-      price: 89.99,
+      price: 2500,
       category: 'men',
       image: 'men1'
     },
