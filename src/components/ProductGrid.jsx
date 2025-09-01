@@ -9,7 +9,7 @@ const ProductGrid = ({ activeCategory, setCartItems }) => {
       description: 'A captivating blend of oud, spices, and amber',
       price: 2500,
       category: 'men',
-      image: 'men1'
+      image: 'men1.jpeg'
     },
     {
       id: 2,
