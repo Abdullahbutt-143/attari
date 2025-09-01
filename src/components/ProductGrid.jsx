@@ -5,7 +5,7 @@ const ProductGrid = ({ activeCategory, setCartItems }) => {
   const products = [
     {
       id: 1,
-      name: 'Gentelman',
+      name: 'Gentleman',
       description: 'A captivating blend of oud, spices, and amber',
       price: 2500,
       category: 'men',
