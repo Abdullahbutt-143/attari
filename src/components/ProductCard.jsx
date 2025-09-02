@@ -31,8 +31,8 @@ const ProductCard = ({ product, onAddToCart }) => {
           </div>
         )}
 
-        {/* Show overlay only if NOT Gentleman */}
-        {product.name !== "Gentleman" && <LaunchingSoonOverlay />}
+        {/* Show overlay only if product ID is NOT in [1–5] */}
+        {![1, 2, 3, 4, 5].includes(product.id) && <LaunchingSoonOverlay />}
       </div>
 
       <div className="p-6">
@@ -59,7 +59,7 @@ const ProductCard = ({ product, onAddToCart }) => {
         <p className="text-gray-600 text-sm mb-4">{product.description}</p>
 
         {/* If Gentleman, enable Add to Cart, else show Coming Soon */}
-        {product.name === "Gentleman" ? (
+        {[1, 2, 3, 4, 5].includes(product.id) ? (
           <button
             onClick={() => onAddToCart(product)}
             className="w-full py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-lg flex items-center justify-center transition-colors duration-300"
