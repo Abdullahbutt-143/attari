@@ -13,35 +13,35 @@ const ProductGrid = ({ activeCategory, setCartItems }) => {
     },
     {
       id: 2,
-      name: 'Desert Rose',
+      name: 'Charm',
       description: 'Exotic floral notes with a hint of spice',
-      price: 79.99,
+      price: 2800,
       category: 'women',
-      image: 'women1'
+      image: 'women.jpeg'
     },
     {
       id: 3,
-      name: 'Ocean Breeze',
+      name: 'Brave',
       description: 'Fresh aquatic notes with citrus and sea salt',
-      price: 74.99,
+      price: 2200,
       category: 'men',
-      image: 'men2'
+      image: 'men2.jpeg'
     },
     {
       id: 4,
-      name: 'Velvet Orchid',
+      name: 'Grace',
       description: 'Luxurious blend of orchid, vanilla, and tonka bean',
-      price: 84.99,
+      price: 2200,
       category: 'women',
-      image: 'women2'
+      image: 'grace_women.jpeg'
     },
     {
       id: 5,
-      name: 'Royal Amber',
+      name: 'Noble',
       description: 'Rich amber with hints of vanilla and sandalwood',
-      price: 92.99,
+      price: 2300,
       category: 'men',
-      image: 'men3'
+      image: 'noble_men.jpeg'
     },
     {
       id: 6,
