@@ -9,7 +9,7 @@ export default function ReturnPolicy() {
         <div className="mb-6 text-center">
           <p className="text-lg text-gray-700 mb-4">
             We guarantee satisfaction with every purchase. If you're not pleased with a product, 
-            feel free to return it. Kindly WhatsApp us at <strong>03012546333</strong>
+            feel free to return it. Kindly WhatsApp us at <strong>03012727058</strong>
           </p>
         </div>
 
@@ -60,7 +60,7 @@ export default function ReturnPolicy() {
           <div className="border-b pb-4">
             <h2 className="text-xl font-semibold text-gray-800 mb-2">How to Initiate</h2>
             <p className="text-gray-600">
-              To initiate the refund/exchange process please WhatsApp us at <strong>03012546333</strong>
+              To initiate the refund/exchange process please WhatsApp us at <strong>03012727058</strong>
             </p>
           </div>
 
